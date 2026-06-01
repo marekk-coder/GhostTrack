@@ -1,0 +1,25 @@
+name: Run GhostTrack
+
+on:
+  workflow_dispatch:  # Manual trigger
+
+jobs:
+  run-ghosttrack:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      
+      - name: Set up Python 3.9
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
+      
+      - name: Install dependencies
+        run: |
+          python3 -m pip install --upgrade pip
+          pip3 install -r requirements.txt
+      
+      - name: Run GhostTrack
+        run: python3 GhostTR.py
