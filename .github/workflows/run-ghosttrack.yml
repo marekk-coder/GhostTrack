@@ -16,5 +16,11 @@ jobs:
         with:
           python-version: '3.9'
       
+      - name: Upgrade pip
+        run: python3 -m pip install --upgrade pip
+      
+      - name: Install dependencies
+        run: pip3 install requests phonenumbers
+      
       - name: Run GhostTrack
         run: python3 GhostTR.py
